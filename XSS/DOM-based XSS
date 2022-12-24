@@ -1,0 +1,37 @@
+A DOM-based XSS vulnerability usually occurs when JavaScript retrieves data from an attacker-controllable source, such as a URL, or sends it to a repository that supports dynamic code execution. To test the HTML repositories, we place a random alphanumeric string in the source, then use the developers to find out where the string appears to examine the HTML. For example, if the array we sent contains an attribute with double quotes, it is necessary to add double quotes to see if you can go outside of this feature. It is a little more difficult to test in JavaScript repositories. The entry we made here doesn't have to appear anywhere, so we can't search for it. We need to use the JavaScript debugger to test this. In principle, if there is an executable file from which data can be Decoded from the source to the repository, then this website is vulnerable to running DOM-based cross-site commands. 
+document.write('... <script>alert(1)</script> ...');
+If the DOM XSS in jQuery uses JavaScript elements, let's pay attention to the repositories that can modify the DOM elements on the page. For example, in jQuery, the attr() function can modify DOM attributes. Another pool that we should pay attention to is $() jQuery's selector function, which can be used to inject malicious objects into the DOM. 
+If a framework such as AngularJS is used, it is possible to run JavaScript without angle brackets or events. 
+DOM XSS-based vulnerabilities combined with projected and stored data are independent on a single page. If a script reads some data from the URL and writes it to a dangerous repository, the vulnerability is completely on the client side. Websites can also store data and project it elsewhere.
+Which sinks can lead to DOM-XSS vulnerabilities?
+The following are some of the main sinks that can lead to DOM-XSS vulnerabilities:
+
+document.write()
+document.writeln()
+document.domain
+element.innerHTML
+element.outerHTML
+element.insertAdjacentHTML
+element.onevent
+The following jQuery functions are also sinks that can lead to DOM-XSS vulnerabilities:
+
+add()
+after()
+append()
+animate()
+insertAfter()
+insertBefore()
+before()
+html()
+prepend()
+replaceAll()
+replaceWith()
+wrap()
+wrapInner()
+wrapAll()
+has()
+constructor()
+init()
+index()
+jQuery.parseHTML()
+$.parseHTML()

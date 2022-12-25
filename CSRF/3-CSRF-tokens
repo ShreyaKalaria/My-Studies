@@ -1,0 +1,8 @@
+What are CSRF tokens?
+A CSRF token is a unique, hidden and unpredictable value created by the server application and transmitted to the client to be included in the next HTTP request made by the client. The server checks it when a request is made, verifies the transaction if it is correct, but rejects it if it is incorrect.  CSRF tokens can prevent such attacks. 
+How should CSRF tokens be created?
+Having the same properties as session tokens in general, they should contain significant entropy and be absolutely unpredictable. We should use CSRPNG when creating. If we need more assurance, we'll combine it with a special entropy.
+How is the CSRF token transmitted?
+It is more convenient to send it secretly in HTML code. Sending via URL is less secure.CSRF tokens should not be transmitted within cookies. 
+How should the CSRF token be verified?
+This token must be on the server side. When the request is made, it compares, verifies and approves the request. But if there is no token or if an incorrect token has been received, it refuses.

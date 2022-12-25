@@ -1,0 +1,7 @@
+Cross-site scripting (or XSS) allows an attacker to execute arbitrary JavaScript within the browser of a victim user.
+
+Cross-site request forgery (or CSRF) allows an attacker to induce a victim user to perform actions that they do not intend to.
+
+The XSS vulnerability consequences are usually more serious than CSRF vulnerabilities. 
+CSRF usually applies to the subset of actions that a user is able to perform. But a successful XSS exploit , regardless of the functionality in which the vulnerability appeared, noraml can perform an action that the user can trigger.
+CSRF can be defined as a one-way vulnerability. because he makes an aggressive request, but he doesn't get an answer. Conversely, XSS is bidirectional.  He sends the attack and reads the incoming response.

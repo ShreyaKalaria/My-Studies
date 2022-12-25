@@ -1,0 +1,22 @@
+What is CSRF(Cross-Site Request Forgery)
+    CSRF is an attacker's way of encouraging users to take actions that they didn't think would happen.
+What is the effect of a successful CSRF attack?
+    Examples such as changing the email address on the victim's account, changing his password or transferring money can be given. Depending on the attribute of the action, it can be decided whether the attacker will have full control over the user or not.
+How does CSRF work?
+    1-related action: It is what the attacker wants to do. For example, changing an email address, etc.
+    2-Cookie-based session management: HTTP requests are used to identify the sending user and to obtain the session information of the user.
+    3- Unpredictable request parameter: It is the case that there is a parameter in the made request that the attacker cannot predict.
+For example, it can be seen that the following application has an email replacement function.
+    POST /email/change HTTP/1.1
+    Host: example.com
+    Content-Type: application/x-www-form-urlencoded
+    Content-Length: 30
+    Cookie: session=yvthwsztyeQkAPzeQ5gHgTvlyxHfsAfs
+
+    email=test@example.com
+
+    
+This example meets the necessary conditions for CSRF.
+    The attacker can perform a password reset operation by putting his e-mail address, his own mailing address.
+    We may receive the user's session cookies in order to track the user's sessions.
+    The attacker easily determines the value of the request parameters necessary to perform the action.

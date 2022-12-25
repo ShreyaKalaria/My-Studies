@@ -1,0 +1,12 @@
+Defense against CSRF with SameSite cookies
+SameSite can be used to control whether and Decently how cookies are sent in cross-site requests. By setting this attribute on session cookies, an application can block default browser calls that automatically add cookies to requests, regardless of where they come from. 
+there are 2 types of samesites: Strict and Lax
+Set-Cookie: SessionID=sYMnfCUrAlmqVVZn9dqevxyFpKZt30NN; SameSite=Strict; 
+Set-Cookie: SessionID=sYMnfCUrAlmqVVZn9dqevxyFpKZt30NN; SameSite=Lax;
+Used in the form of. 
+When using Strict, the browser cookie will not be included in requests from another site. This is the most defensive option, but it can damage the user experience. Because if a logged-in user follows the third-party link, here the user must reopen the session.
+When using Lax, the browser includes cookies in requests from another site when the following two conditions are met.
+1.The request uses the GET method. Requests made by other methods, such as POST, do not contain cookies.
+2.The request is caused by the user's high-level browsing, such as clicking on a link. It does not contain any cookies.
+Here Lax provides partial defense, because here it runs POSt requests and can also run GET requests like post.
+In summary, only SameSite cookies should not be trusted against CSRF attacks. If October can be used in addition to CSRF tokens, this is an October defense.

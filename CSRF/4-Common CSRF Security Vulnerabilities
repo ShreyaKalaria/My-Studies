@@ -1,0 +1,52 @@
+The most interesting CSRF vulnerabilities are caused by errors made in the verification of CSRF tokens. 
+In the following example, the user wants to change the email address, the CSRF token is also available, as can be seen. 
+POST/email/change HTTP/1.1
+Host: example.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 68
+Cookie: session=2yQIDcpia41WrATfjPqvm9tOkDvkMvLr
+
+csrf=WfF1szMUHhiokx9AHFply5L2xAOfjRkw&email=user@example.com
+There are various ways to break down this defense. So this application is vulnerable. 
+
+a: The verification of the CSRF token depends on the request method
+Some applications correctly authenticate the token when the request post method is used, but skip verification when GET is used. In this case, the attacker must use the GET request to bypass verification and perform the CSRF attack. 
+GET /email/change?email=vuln-user@example.net HTTP/1.1
+Host: example.com
+Cookie: session=2yQIDcpia41WrATfjPqvm9tOkDvkMvLr
+
+b: The verification of the CSRF token depends on the availability of the token
+Some applications correctly verify the token when it is available, but verification is skipped if the token is skipped. In this case, the attacker can remove the entire parameter containing the token in order to bypass verification and perform a CSRF attack.
+
+POST/email/change HTTP/1.1
+Host: example.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 25
+Cookie: session=2yQIDcpia41WrATfjPqvm9tOkDvkMvLr
+
+email=user@example.net
+
+c:The CSRF token is not connected to the user session.
+Some applications cannot verify that the token belongs to the same session as the requesting user. Instead, the application maintains a public token pool that it publishes and accepts any token that appears in this pool. 
+d: The CSRF token depends on the session foreign cookie.
+In some vulnerability variation, some applications bind the CSRF token to a cookie, but not to the cookie used to monitor sessions. This application can easily get there when it uses two different frameworks, one for session processing and the other for CSRF protection, which are not integrated into each other.
+POST/email/change HTTP/1.1
+Host: example.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 68
+Cookie: session=pSJYSScWKpmC60LpFOAHKixuFuM4uXWF; csrfKey=rZHCnSzEp8dbI6atzagGoSYyqJqTz5ds
+
+csrf=RhV7yQDO0xcq9gLEah2WVbmuFqyOq7tp&email=user@example.com
+It is very difficult to take advantage of this situation, but it is still vulnerable to CSRF.An attack is possible if the website allows the attacker to install any cookies on the victim's browser.
+NOTE: The identification identification behavior does not even need to exist in the same web application as the CSRF vulnerability. It is enough that they have the same DNS domain name. For example, demo.example.com and security.example.com one of them can be used for cookie information.
+
+e: The CSRF token simply multiplies in a cookie. 
+Some applications do not keep records on the server side, but instead duplicate each token in a cookie and a request parameter. 
+POST/email/change HTTP/1.1
+Host: example.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 68
+Cookie: session=1DQGdzYbOJQzLP7460tfyiv3do7MjyPw; csrf=R8ov2YBfTYmzFyjit8o2hKBuoIrXXVpr
+
+csrf=R8ov2YBfTYmzFyjit8o2hKBuoIjXXVpr&email=user@example.com
+In this case, if the website contains any cookie setting function, the attacker can perform a CSRF attack again.

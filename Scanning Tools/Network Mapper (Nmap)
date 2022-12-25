@@ -1,0 +1,5 @@
+Nmap is a popular tool used to carry out port scanning, discover network protocols, identify running services, and detect operating systems on live hosts. 
+nmap -sS 10.10.10.10 ==> It is a type of scan initiated by the source machine by sending a TCP SYN flagged segment to the target machine.
+nmap -sn 10.10.10.10 ==>> Allows scanning the live hosts in the network without going deeper and checking for ports services etc. 
+nmap -O 10.10.10.10 ==>> Allows scanning of the type of OS running on a live host. 
+nmap -sV 10.10.10.10 ==>> Get a list of running services on a live host.

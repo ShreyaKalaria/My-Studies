@@ -1,0 +1,12 @@
+In addition to using CSRF tokens, some applications Referer uses the HTTP header to attempt to defend against CSRF attacks, normally verifying that the request comes from the application's own domain.
+
+a: The referrer verification depends on the availability of the header.
+Some applications Referrer verifies the header when making requests, but verification can be skipped if the header is skipped. In this case, the attacker can commit the CSRF exploit in such a way that the victim user browser leaves the request header that appears as a result of the Referer. It is to use the META tag on the HTML page hosting the CSRF attack. 
+<meta name="referrer" content="never">
+
+b: Verification of the referrer can be prevented.
+Some applications can be bypassed the Referer header. For example, if the application verifies that the domain Rerefer starts with the expected value, the attacker can place it as a subdomain of his own domain.
+http://vulnerable.com.attacker.com/csrf-attack
+
+Similarly, if the application only verifies that the Referer contains its own domain name, the attacker can place the required URL value elsewhere.
+http://attacker.com/csrf-attack?vulnerable.com

@@ -1,0 +1,2 @@
+CORS(Resource sharing between resources) is a browser Decoupling mechanism that provides controlled access to resources located outside a specific domain. But if a website's CORS policy is poorly Deconstructed and implemented, it also provides potential for cross-domain attacks.
+ CORS is not a protection against cross-Decoupling attacks like CSRF.

@@ -1,0 +1,16 @@
+Cors security vulnerabilities are primarily caused by incorrect configuration. Prevention is therefore a configuration problem. The following sections describe some effective defenses against CORS attacks.
+
+a: Deconstructing inter-resource requests in a proper way
+If a web resource contains sensitive information, the resource Access-Control-Allow-Origin must be specified appropriately in the header.
+
+b:Allow only trusted sites
+Exit is visible, but the resources specified in the Access-Control-Allow-Origin header should only be trusted sites.
+
+a:Avoid getting blank white list
+Avoid using the header Access-Control-Allow-Origin:null. Inter-resource calls from internal documents and protected requests can specify a null resource. Dec.
+
+d:Avoid wildcards on internal networks
+Let's avoid using wildcards on internal networks. When internal browsers are used to access untrusted external domains, it is not enough to rely on the network configuration alone to protect internal resources.
+
+e:CORS is not a substitute for server-side security policies.
+CORS defines browser behaviorhome is never a substitute for server-side protection of sensitive data. An attacker can create a fake isek directly from any reliable source.For this reason, web servers must implement October protections on sensitive data, such as authentication and session management, in addition to correctly configured CORS.

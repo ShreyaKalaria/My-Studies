@@ -1,0 +1,17 @@
+SIEM is used to correlate the data collected to detect threats. It gives a warning when a threat is detected or when a particular threshold is exceeded. This warning enables analysts to take quantity -based measures. It provides good visibility as to what is over in the network infrastructure.
+
+Siem skills
+
+=> Correlation between events from different daily resources.
+=> visibility is achieved in both host -based and network -centered activities.
+=> Gives a trace of analysts' latest threats and timely response research.
+=> Investigates threats that cannot be determined by the rules in force.
+
+SOC analyst responsibilities
+SOC analysts use Siem solutions to better use what is going on in the network.
+
+::: Monitoring and research
+::: Determining the wrong positive
+::: adjustment rules that cause noise or wrong positive
+::: Reporting and compatibility
+::: Bringing the blind spots in network visibility and closing them

@@ -1,0 +1,25 @@
+Each device below can be given as an example, such as a user visiting a website, connecting to SSH, logging in to workstations.
+
+a:Windows Machine
+Windows records every event that can be viewed through the Event Viewer utility. To view the events in the windows environment, it is sufficient to type "event viewer" in the windows search bar. These logs from all window endpoints are exported to SIEM for monitoring and better visibility.
+
+b:Linux
+
+Linux operating system events, errors, warnings, etc. It stores all logs like These are then taken to SIEM for continuous monitoring. Here are the common locations where Linux logs are found.
+
+:::/var/log/httpd :Contains HTTP request/response and error logs
+:::/var/log/cron :The events related to cron jobs are stored in this location.
+:::/var/log/auth.log and /var/log/secure :Keeps logs related to authentication.
+:::/var/log/kern : This file stores kernel related files.
+ 
+c:Webserver
+
+It is important to keep an eye on all requests/responses to and from the web server for any potential web attack attempts. On Linux, common locations for writing all apache-related logs are /var/log/apache or /var/log/httpd.
+
+Daily Intake
+All these logs provide a wealth of information and can help identify security issues. Each SIEM solution has its own way of retrieving logs. Some common methods used by these SIEM solutions are described below.
+
+1:Agent/forwarder: These SIEM solutions provide a lightweight tool called Splunk, the agent that is loaded into the ENDpoint.
+2:syslog: Web servers, databases, etc. It is a widely used protocol for collecting data from various systems such as It sends the data to the central destination in real time.
+3:Manual installation:Splunk,ELK,etc. Some SIEM solutions, such as SIEM, allow users to retrieve data offline for quick analysis. It normalizes the data and makes it available for analysis.
+4:Port Forwarding: SIEM solutions can also configure to listen on a specific port, and then the endpoints forward their data to the SIEM on the port.

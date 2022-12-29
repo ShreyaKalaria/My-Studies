@@ -1,0 +1,11 @@
+Siem Tool, all security -related diaries agents, porting point guidance and so on. If the condition is met, a rule is triggered and the event is investigated.
+
+Dashboard
+The panels are the most important components of any Siem. Siem offers data for analysis after normalizing and receiving the data. Some of the information on the instrument panel are as follows.
+=> Warnings that will stand out
+=> System Notification
+=> Health warning
+=> Unsuccessful input experiments list
+=> Number of Activities received
+=> When the rules are triggered
+=> Most visited domains

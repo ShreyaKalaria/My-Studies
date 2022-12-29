@@ -1,0 +1,34 @@
+SIEM stands for Security Information and Event Management system. 
+It is a tool that collects data from various endpoints on the network, stores them in a central place and performs correlation on them.
+Let's understand why it is critical to have a better view of all activity within a network. Internet, router, data server, web server, linux and windows operating systems are always interacting. Each component communicates with the other or accesses the Internet via a router.
+As we know, every network component. can have one or more log sources that generate different logs. We can divide the network log into two:
+
+1:Host-Centric Logs
+
+These are logs that capture events that occur within or about the host. Some log sources that create centralized logs to the mainframe are Windows event logs, Sysmon,Osquery. Here are some examples of master-centric logs:
+    ==>A user accessing a file
+    ==>A user authenticating
+    ==>A process execution event
+    ==>Add/edit/delete a registry key or value
+    ==>Execute Powershell
+
+2:Network-centric logs
+
+Network related logs are created when hosts communicate with each other or access the internet to visit a website. Some network-based protocols are: SSH, FTP, HTTP, VPN etc. Examples of such events:
+
+    ==>SSH connection
+    ==> File accessed via FTP
+    ==>Web traffic
+    ==> User accessing the company's data via VPN
+    ==>Network file sharing activity
+
+Importance of SIEM
+
+As all these devices generate hundreds of events per second, it can be a tedious task to examine them all in case of any event. This is one of the advantages of having an on-site SIEM solution. Not only does it get logs from a variety of sources in real time, it also provides the ability to correlate events, search logs, investigate events, and respond instantly. Some of the key features provided by SIEM are:
+
+    =>Real time log retrieval
+    =>Warning against abnormal activities
+    => 24/7 monitoring and visibility
+    => Protection against the latest threats through early detection
+    =>Data insights and visualization
+    => Ability to research past events

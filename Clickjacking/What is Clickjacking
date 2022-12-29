@@ -1,0 +1,2 @@
+Clickjacking is an interface-based attack in which a user is tricked into clicking actionable content on a hidden website by clicking on other content on a deceptive website.
+A web user accesses a trap website and clicks on it under the pretext of winning a prize. Unwittingly, they are tricked by an attacker into pressing an alternative secret button, which is paid for by paying for an account on another site. This is an example of a clickjacking attack.

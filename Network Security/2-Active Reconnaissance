@@ -1,0 +1,55 @@
+Active Reconnaissance, we need to make some kind of contact with our target. This communication can be a phone call or a visit to the target company, often with an excuse to gather more information as part of the engineering.
+
+a:Web Browser
+    Web browser can be a useful tool especially as it can be used easily on all systems. There are several ways to use a web browser to gather information about a target. CTRL+SHIFT+I opens browser developer options. Developer tools allow us to examine many things that the browser receives and exchanges with the remote server. For example, we can view or modify JavaScript files, review the cookies set on our system, and examine the folder structure of the site content.
+
+b:ping
+    The primary purpose of pinging is to check if you are reaching a remote system and whether the remote system is reaching you back. In other words, we initially used this to check the network connection; However, we are more interested in its different uses: checking if the remote system is online.
+    Example:
+        ping 127.0.0.1 :::The machine will ping infinitely if it runs.
+        ping -c 127.0.0.1 ::: If the machine is running, it will ping 10
+        ping -c 5 127.0.0.1 ::: Ping the server 5 times
+
+    Technically, ping falls under ICMP (Internet Control Message Protocol).
+    If the target virtual machine is down, it will return us a result like this:
+    From ATTACKBOX_IP icmp_seq=1 Destination Host Unreachable
+
+    In general, there are several explanations for why we do not receive a ping response when we do not receive a ping response, for example:
+        1-The target computer is not responding; it's probably still booting or shutting down or the OS has crashed.
+        2-It is disconnected from the network or there is a faulty network device in the path.
+        3-A firewall is configured to block such packets. The firewall can be a piece of software running on  the system itself or a separate network device. Note that the MS Windows firewall blocks ping by default.
+        4-Your system has been disconnected from the network.
+c:traceroute
+    As the name suggests, the traceroute command monitors the route our packet travels to another host. The purpose of a traceroute is to find the IP addresses of the routers or hops a packet travels from your system to the destination host. This command also shows the number of routers between the two systems. It is useful as it shows the number of hops (routers) between your system and the target host.
+    Example: traceroute is used as 10.10.247.84.
+    To summarize, we can notice the following:
+
+    1- The number of hops/routers between your system and the target system depends on the time you run traceroute. There is no guarantee that your packets will always follow the same route, whether you are on the same network or repeat the traceroute command in a short time.
+    2-Some routers return a public IP address. You can review a few of these routers based on the scope of the intended penetration test.
+    3-Some routers do not return a response.
+d:telnet
+    The TELNET (Teletype Network) protocol was developed in 1969 to communicate with a remote system via a command line interface (CLI). Therefore, command telnet uses the TELNET protocol for remote management. The default port used by telnet is 23. For security reasons, telnet sends all data in clear text, including usernames and passwords. Sending it in clear text makes it easy for anyone with access to the communication channel to steal their login credentials. The safe alternative is the SSH (Secure SHell) protocol.
+    Example:
+        telnet 1.1.1.1 80
+e:netcat(nc)
+    Usually used for port listening. Or it can be used to connect to an IP address and port.
+    Sample:
+    nc 10.10.10.10 80 >>10.10.10.10 connect to port 0 of IP address.
+    nc -nvlp 1234 >>Listen on port 1234
+
+    option      meaning
+    -l      Listening mode
+    -p      Specify the port number
+    -n      Numeric only; No resolution of hostnames via DNS
+    -v      verbose output (optional, but useful for discovering any bugs)
+    -vv     Very Verbose (optional)
+    -k      Resume listening after client disconnects
+f:Putting It All Together
+        Command                 	Example
+    ping	                ping -c 10 10.10.170.88 on Linux or macOS
+    ping	                ping -n 10 10.10.170.88 on MS Windows
+    traceroute	traceroute  10.10.170.88 on Linux or macOS
+    tracert	tracert         10.10.170.88 on MS Windows
+    telnet	telnet          10.10.170.88 PORT_NUMBER
+    netcat as client	    nc 10.10.170.88 PORT_NUMBER
+    netcat as server	    nc -lvnp PORT_NUMBER

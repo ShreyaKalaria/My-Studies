@@ -1,0 +1,26 @@
+Discovery can be defined as preliminary research to gather information about a target. We divide exploration into two:
+1-Passive Discovery
+2-Active exploration
+ In passive discovery, we rely on publicly available information. Information that we can access from open sources without directly communicating with the target. We can think of it as if we are looking at the target area from afar without stepping foot in that area.
+
+Passive reconnaissance activities include many activities, such as:
+=>Scanning a domain's DNS records from a public DNS server.
+=> To follow the advertisements related to the target website.
+=> Reading articles about the target company.
+
+ Active reconnaissance cannot be done so covertly. It communicates directly with the target. Think of it like checking locks on doors and windows, among other potential entry points.
+
+Here are some examples of active exploration activities:
+=>Connecting to one of the company servers such as HTTP, FT and SMTP,
+=> To call the company for information (Social engineering),
+=> Entering the company building in disguise.
+Given the invasive nature of active exploration, one can quickly run into legal trouble if proper legal clearance is not obtained.
+
+a::Whois
+Whois is a request and response protocol that follows the RFC 3912 specification. The whois server responds to various information about the requested domain. Of particular interest we can learn about:
+--Registered company name, through which company establishment the domain was registered.
+--Registerer's contact information, Name, organization, address, phone and other information (unless hidden)
+--Creation, update and expiration dates.
+--name server
+
+for example:

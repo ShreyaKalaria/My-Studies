@@ -1,0 +1,19 @@
+When we want to target a network, we want us to handle repetitive tasks and find answers to the following questions.
+1- Which systems are open?
+2- For which services do these systems work?
+To scan with Nmap, we can use it with different options as follows.
+::list: nmap 1.1.1.1 abc.example.com example.com
+::range: nmap 10.10.10.10-20
+::subnet: nmap 1.1.1.1/30
+::We can provide input for your target list in a file: nmap -iL subdomain.txt
+::For list of hosts: nmap -sL Targets
+::When we don't want to scan DNS server: nmap -n 1.1.1.1
+::Discovering online hosts without port scanning on live systems: nmap -sn TARGETS
+If you want ::Nmap to only perform an ARP scan without a port scan, you can use: "nmap -PR -sn TARGETS" -PR specifies the ARP request.
+::We scanned the target's subnet "nmap -PE -sec MACHINE_IP/24"
+In an attempt to discover live hosts using ::ICMP address mask queries, we run the command: "nmap -PM -sn MACHINE_IP/24"
+If you want ::Nmap to use TCP SYN ping-PS, you can do so via the option followed by port number, range, list, or a combination of these. For example, "-PS2121" targets port "-PS21-25", while ports 21, 22, 23, 24, and 25 "-PS80,443,8080".
+::TCP ACK ping scan: nmap -PA -sec MACHINE_IP/24
+::UDP ACK ping scan: nmap -PU -sec MACHINE_IP/24
+::Port scanning option is done with "-p", if this is not written in the query, 1000 ports will be scanned by default."-p25,-p21-25,-p22,21, --to-ports 100".
+::We want it to issue a reverse DNS lookup for all possible hosts on a subnet: nmap -r 1.1.1.1

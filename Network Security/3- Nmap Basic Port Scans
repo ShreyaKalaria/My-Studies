@@ -17,3 +17,34 @@ If you want ::Nmap to use TCP SYN ping-PS, you can do so via the option followed
 ::UDP ACK ping scan: nmap -PU -sec MACHINE_IP/24
 ::Port scanning option is done with "-p", if this is not written in the query, 1000 ports will be scanned by default."-p25,-p21-25,-p22,21, --to-ports 100".
 ::We want it to issue a reverse DNS lookup for all possible hosts on a subnet: nmap -r 1.1.1.1
+
+    At the risk of oversimplification, we can classify ports in two states:
+
+    Open port indicates that there is some service listening on that port.
+    Closed port indicates that there is no service listening on that port.
+    However, in practical situations, we need to consider the impact of firewalls. For instance, a port might be open, but a firewall might be blocking the packets. Therefore, Nmap considers the following six states:
+
+    ""Open: indicates that a service is listening on the specified port.
+    ""Closed: indicates that no service is listening on the specified port, although the port is accessible. By accessible, we mean that it is reachable and is not blocked by a firewall or other security appliances/programs.
+    ""Filtered: means that Nmap cannot determine if the port is open or closed because the port is not accessible. This state is usually due to a firewall preventing Nmap from reaching that port. Nmap’s packets may be blocked from reaching the port; alternatively, the responses are blocked from reaching Nmap’s host.
+    ""Unfiltered: means that Nmap cannot determine if the port is open or closed, although the port is accessible. This state is encountered when using an ACK scan -sA.
+    ""Open|Filtered: This means that Nmap cannot determine whether the port is open or filtered.
+    ""Closed|Filtered: This means that Nmap cannot decide whether a port is closed or filtered.
+
+::To illustrate the -sT (TCP connect scan), the following command example returned a detailed list of the open ports: nmap -sT MACHINE_IP
+::The default number of scanned pots is 1000. We use -F to make it 100.
+::We use the -r option to scan for ports in a default order.
+::TCP SYN scan is the default scan mode and a very reliable choice when running Nmap as a privileged user, running as root or using sudo. nmap -sS 10.10.10.11
+We use the -sU option to scan for UDP: nmap -sU 10.10.10.11
+::We have the opportunity to adjust the scanning speed between -T0 and -T5. -T5 is the fastest and -T0 is the slowest. Values ​​in between are also valid. When this option is not typed, the default is -T3. nmap -T4 10.10.10.10
+::Our option to send empty packets: nmap -sN 10.10.10.10
+::FIN scan sends a TCP packet with the FIN flag set: nmap -sF 10.10.10.10
+::Xmas scan sets FIN, PSH and URG flags at the same time. You can choose Xmas scan with option -sX. Like blank scan and FIN scan, if an RST packet is received it means the port is down: nmap -sX 10.10.10.10
+::As the name suggests, an ACK scan sends a TCP packet with the ACK flag set. Use the option to select this scan. -sA: nmap -sA 10.10.10.10
+::TCP window scan is almost the same as ACK scan; however, it examines the TCP Window area of ​​the returned RST packets. On certain systems this may reveal that the port is open: nmap -sW 10.10.10.10
+::In some network setups you will be able to scan a target system using a fake IP address or even a fake MAC address : nmap -S SPOOFED_IP MACHINE_IP
+::Nmap gives the option to shred "-f" packages. Once selected, the IP data will be split into 8 bytes or less. Adding -f another ( -f -f or ) -ff splits the data into chunks of 16 bytes instead of 8. Its default value is --mtu; however, you should always choose multiples of 8.
+nmap -ff 10.10.10.10, incoming packets are 16 bytes in size.
+If you want ::nmap to give more details about its rationale and results, consider adding: nmap -sS --reason 10.10.10.10
+:: Use -v or -vv option to get a more detailed output.
+:: Debug -d or -dd option is used.

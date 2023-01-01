@@ -48,3 +48,6 @@ nmap -ff 10.10.10.10, incoming packets are 16 bytes in size.
 If you want ::nmap to give more details about its rationale and results, consider adding: nmap -sS --reason 10.10.10.10
 :: Use -v or -vv option to get a more detailed output.
 :: Debug -d or -dd option is used.
+::The "-O" option is used for OS detection: nmap -O 10.10.10.10
+If you want ::nmap to find the routers between you and the target, "--traceroute", nmap --traceroute 10.10.10.10
+The following usage is available for the scan scripts available in ::nmap. nmap -sS -n --script "http-date" 10.10.196.1

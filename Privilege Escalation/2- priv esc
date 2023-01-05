@@ -33,7 +33,7 @@ linux:
         find / -atime 10: find files that were accessed in the last 10 day
         find / -cmin -60: find files changed within the last hour (60 minutes)
         find / -amin -60: find files accesses within the last hour (60 minutes)
-        find / -size 50M: find files with a 50 MB size
+        find / -size 50M: find files with a 50 MB sizes
 
     Python version : : python -V
 
@@ -42,3 +42,6 @@ linux:
     Under the /etc/crontab file, if there is a file that is run with root permission, we can run those files as we want and enter the system as root. Do not forget to add chmod +x to the created file.
 
 windows:
+    We use the "more" command to open text files.
+
+

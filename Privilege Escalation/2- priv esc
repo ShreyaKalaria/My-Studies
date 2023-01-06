@@ -42,6 +42,13 @@ linux:
     Under the /etc/crontab file, if there is a file that is run with root permission, we can run those files as we want and enter the system as root. Do not forget to add chmod +x to the created file.
 
 windows:
-    We use the "more" command to open text files.
+    -We use the "more" command to open text files.
+
+    -To run the exploit on Windows, we print the exploit code to the file via PowerShell IIS and run it. The PowerShell file extension is also ".ps1".
+
+    -Nishang is a framework and collection of scripts and payloads which enables usage of PowerShell for offensive security, penetration testing and red teaming. Nishang is useful during all phases of penetration testing.
+
+    
+
 
 

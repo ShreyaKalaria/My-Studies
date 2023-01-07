@@ -1,0 +1,6 @@
+Sqlmap is an open source sql injection vulnerability detection and exploitation tool. It detects the type of sql injection on the system by sending various queries/commands to the database system used by the target web application provided to it. Again, it takes various information from the target database according to the parameters provided to it.
+
+sqlmap -r requests.txt -dmbs=mysql --dump
+    -r uses the intercepted request you saved earlier
+    -dbms tells SQLMap what type of database management system it is
+    --dump attempts to outputs the entire database

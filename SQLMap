@@ -4,3 +4,6 @@ sqlmap -r requests.txt -dmbs=mysql --dump
     -r uses the intercepted request you saved earlier
     -dbms tells SQLMap what type of database management system it is
     --dump attempts to outputs the entire database
+
+    To use sqlmap, after the user is logged in, we save any query via burp and scan it over sqlmap.
+    

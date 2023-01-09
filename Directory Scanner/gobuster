@@ -1,0 +1,2 @@
+gobuster dir --wordlist /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt 
+    -u http://10.10.94.163/content/ -x php,txt,html,sh,cgi

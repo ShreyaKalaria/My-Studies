@@ -1,0 +1,3 @@
+uniq >> The uniq will wipe out all of the repeated words.
+sort >> The sort command fits for this purpose.
+wc -l >> Number of lines in the file.

@@ -1,1 +1,3 @@
 find / -perm -u=s -type f 2>/dev/null :: To scan for SUID bits
+
+gobuster dir -u http://10.10.30.65/changes -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x html,css,js,php,cgi,txt,sh,conf -t 64

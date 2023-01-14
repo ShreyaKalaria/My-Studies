@@ -1,2 +1,3 @@
 Nikto is open-source software that allows scanning websites for vulnerabilities. It enables looking for subdomains, outdated servers, debug messages etc., on a website.
-Use of: nikto -host 10.10.10.10
+    Use of: nikto -host 10.10.10.10 , Basic Scanning
+    

